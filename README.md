@@ -376,12 +376,11 @@ function playAudio(url) {
 
 > Note: To allow playback with the screen locked or background audio you have to add `audio` to `UIBackgroundModes` in the `info.plist` file. See [Apple documentation](https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html#//apple_ref/doc/uid/TP40007072-CH4-SW23). Also note that the audio has to be started before going to background.
 
-- __order of file search__: When only a file name or simple path is
-  provided, iOS searches in the `www` directory for the file, then in
-  the application's `documents/tmp` directory:
+- __order of file search__: When a path starting with a slash (/) is
+  provided, iOS searches in the `www` directory for the file:
 
-        var myMedia = new Media("audio/beer.mp3")
-        myMedia.play()  // first looks for file in www/audio/beer.mp3 then in <application>/documents/tmp/audio/beer.mp3
+        var myMedia = new Media("/audio/beer.mp3")
+        myMedia.play()  // looks for file in www/audio/beer.mp3
 
 ## media.release
 
